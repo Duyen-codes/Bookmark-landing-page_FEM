@@ -11,6 +11,7 @@
 html {
   font-family: "Rubik", sans-serif;
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -22,14 +23,151 @@ html {
 }
 
 /* Resets  */
+
 button {
   cursor: pointer;
+  border: none;
 }
 
 ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-size: 1.8rem;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4rem 4rem 0;
+  position: relative;
+}
+
+nav {
+  position: absolute;
+  background: hsla(230, 31%, 53%, 0.7);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+}
+
+nav ul {
+  text-transform: uppercase;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 4rem;
+}
+
+.nav-mobile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul li {
+  display: block;
+  text-align: center;
+}
+
+nav ul a {
+  color: white;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  display: block;
+  margin-left: 0;
+}
+
+nav ul a:hover {
+  color: var(--Soft-Red);
+}
+
+.login-btn {
+  background: var(--Soft-Red);
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem 2.5rem;
+  text-transform: uppercase;
+  position: relative;
+  margin-top: 3rem;
+}
+
+.login-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.login-btn:hover::after {
+  border: 2px solid blue;
+  background: transparent;
+}
+
+.login-btn:hover {
+  color: black;
+  background: transparent;
+}
+
+.login-btn {
+  width: 100%;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1rem 0;
+}
+
+.nav-mobile-top {
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+  .burger-icon {
+    display: none;
+  }
+
+  nav {
+    display: inline-block;
+    background: none;
+    position: inherit;
+    width: unset;
+    height: unset;
+  }
+
+  nav ul {
+    width: unset;
+    margin: unset;
+    display: inline-flex;
+    gap: 8rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0;
+  }
+
+  nav ul a {
+    color: var(--Very-Dark-Blue);
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .login-btn {
+    width: unset;
+    padding: 1rem 2.5rem;
+    margin-top: unset;
+  }
 }
