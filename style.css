@@ -41,6 +41,10 @@ body {
   font-size: 1.8rem;
 }
 
+header {
+  margin-bottom: 5rem;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -52,26 +56,31 @@ body {
   z-index: 9999;
 }
 
-nav {
+.logo-wrapper {
+  position: fixed;
+  left: 4rem;
+  top: 3.5rem;
+  z-index: 9999;
+}
+
+nav ul {
   position: fixed;
   background: hsl(230, 31%, 53%, 0.7);
   inset: 0 0 0 0;
-  display: none;
   z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+}
+
+nav ul[data-visible="true"] {
+  transform: translateX(0);
 }
 
 nav ul {
   text-transform: uppercase;
-  width: 90%;
   margin-left: auto;
   margin-right: auto;
   padding: min(20vh, 10rem) 2rem;
-}
-
-.nav-mobile-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 nav ul li {
@@ -117,8 +126,15 @@ nav ul a:hover {
   padding: 1rem 0;
 }
 
-.nav-mobile-top {
-  display: none;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 .mobile-nav-toggle {
@@ -133,27 +149,28 @@ nav ul a:hover {
   z-index: 9999;
 }
 
+.mobile-nav-toggle[aria-expanded="true"] {
+  background-image: url(/images/icon-close.svg);
+  /* cross icon becomes black  */
+  filter: invert(88%) sepia(21%) saturate(935%) hue-rotate(123deg)
+    brightness(85%) contrast(97%);
+}
+
 @media screen and (min-width: 900px) {
   .mobile-nav-toggle {
     display: none;
   }
 
-  nav {
-    display: inline-block;
-    background: none;
-    position: inherit;
-    width: unset;
-    height: unset;
-  }
-
   nav ul {
+    background: none;
+    position: unset;
     width: unset;
     margin: unset;
     display: inline-flex;
     gap: 8rem;
     align-items: center;
     justify-content: space-between;
-    padding-top: 0;
+    padding: 0;
   }
 
   nav ul a {
@@ -163,8 +180,6 @@ nav ul a:hover {
   }
 
   .login-btn {
-    width: unset;
     padding: 1rem 2.5rem;
-    margin-top: unset;
   }
 }
