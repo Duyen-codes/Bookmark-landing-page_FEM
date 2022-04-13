@@ -10,16 +10,23 @@
   <body>
     <header>
       <div class="wrapper">
-        <a href="#">
+        <div>
           <img
             class="desktop-logo"
             src="./images/logo-bookmark.svg"
             alt="logo bookmark"
           />
-        </a>
+        </div>
+        <button
+          class="burger-icon mobile-nav-toggle"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+        >
+          <span class="sr-only">Menu</span>
+        </button>
 
         <nav>
-          <ul>
+          <ul id="primary-navigation" class="primary-navigation">
             <div class="nav-mobile-top">
               <img
                 class="mobile-logo"
@@ -34,12 +41,6 @@
             <button class="login-btn">login</button>
           </ul>
         </nav>
-
-        <img
-          class="burger-icon"
-          src="./images/icon-hamburger.svg"
-          alt="icon icon-hamburger"
-        />
       </div>
     </header>
     Features Pricing Contact Login A Simple Bookmark Manager A clean and simple

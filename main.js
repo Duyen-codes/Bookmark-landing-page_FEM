@@ -5,7 +5,6 @@ const closeIcon = document.querySelector(".close-icon");
 
 burgerIcon.addEventListener("click", function () {
   nav.style.display = "block";
-  burgerIcon.style.visibility = "hidden";
   desktopLogo.style.visibility = "hidden";
 });
 
